@@ -7,10 +7,12 @@ alpha=`echo {a..z} | tr -d ' '`
 ALPHA=`echo {A..Z} | tr -d ' '`
 NUM=`echo {0..9} | tr -d ' '`
 SYM="!@$%&(){}?"
+
 # GENERATES ONE (1) RANDOM LOWERCASE LETTER!
 until [ $(echo $first | grep [$alpha] ) ]; do
     first=$(cat $RND | LC_CTYPE=C tr -cd "$alpha" | head -c 1)
 done
+
 
 # CAPTURES OPTIONS (e.g. -c & -l) AND ARGUMENTS (e.g. l,u,n & s)!
 while getopts "c:l:" opt; do
@@ -20,16 +22,17 @@ while getopts "c:l:" opt; do
     esac
 done
 
+
 # EVALUATES THE '$args' VARIABLE, WHICH CONSIST OF THE ARGUMENTS FROM THE '-c' OPTION,
 # AND ASSIGN IT A NUMERICAL VALUE TO BE USED IN FUTURE 'IF' STATEMENTS!
 for i in $(seq 0 $(expr ${#args} - 1))
 do
     init=${args:$i:1}
-    if [ "$init" == "l" ]; then a=1
+      if [ "$init" == "l" ]; then a=1
     elif [ "$init" == "u" ]; then b=3
     elif [ "$init" == "n" ]; then c=5
     elif [ "$init" == "s" ]; then d=11
-    fi
+      fi
 done
 sum=$((a + b + c + d))
 
