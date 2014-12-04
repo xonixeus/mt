@@ -1,0 +1,17 @@
+#!/bin/bash
+# http://stackoverflow.com/questions/1466709/improve-my-password-generation-script
+# ORIGINAL PASSWORD GENERATOR SCRIPT
+# GENERATES A RANDOM 24 CHARACTER PASSWORD USING;
+# LOWERCASE, UPPERCASE LETTERS, NUMBERS & SYMBOLS
+
+LEN=24
+RND=/dev/urandom
+alpha=`echo {a..z} | tr -d ' '`
+ALPHA=`echo {A..Z} | tr -d ' '`
+NUM=`echo {0..9} | tr -d ' '`
+SYM="!@$%&(){}?"
+
+until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] | grep -c [$SYM] ) == 1 ]; do
+	pass=$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$NUM$SYM" | head -c $LEN)
+done
+echo -e $pass '\n'
