@@ -1,0 +1,29 @@
+#!/bin/bash
+# http://stackoverflow.com/questions/1466709/improve-my-password-generation-script
+# SECOND VERSION OF THE PASSWORD GENERATOR SCRIPT
+# BY DEFAULT, IT GENERATES A RANDOM 24 CHARACTER PASSWORD USING;
+# LOWERCASE, UPPERCASE LETTERS, NUMBERS & SYMBOLS
+# HOWEVER, IT WILL ALSO ACCEPT A LENGTH AMOUNT AS LONG AS IT'S GREATER THAN 11!
+
+RND=/dev/urandom
+alpha=`echo {a..z} | tr -d ' '`
+ALPHA=`echo {A..Z} | tr -d ' '`
+NUM=`echo {0..9} | tr -d ' '`
+SYM="!@$%&(){}?"
+
+if [ -z "$1" ]
+then
+    LEN=24
+    until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] | grep -c [$SYM] ) == 1 ]; do
+	pass=$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$NUM$SYM" | head -c $LEN)
+    done
+    echo -e $pass '\n'
+elif [ "$1" -gt 11 ]
+then
+    until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] | grep -c [$SYM] ) == 1 ]; do
+        pass=$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$NUM$SYM" | head -c $1)
+    done
+    echo -e $pass '\n'
+else
+    echo -e "Password length must be greater than eleven (11) characters!\n"
+fi
