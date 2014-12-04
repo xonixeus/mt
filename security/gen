@@ -26,10 +26,10 @@ count=$(expr ${#args} - 1)
 for i in $(seq 0 $count)
 do
     init=${args:$i:1}
-    if ( [ "$init" == "l" ] ); then a=1
-    elif ( [ "$init" == "u" ] ); then b=3
-    elif ( [ "$init" == "n" ] ); then c=5
-    elif ( [ "$init" == "s" ] ); then d=11
+    if [ "$init" == "l" ]; then a=1
+    elif [ "$init" == "u" ]; then b=3
+    elif [ "$init" == "n" ]; then c=5
+    elif [ "$init" == "s" ]; then d=11
     fi
 done
 sum=$((a + b + c + d))
