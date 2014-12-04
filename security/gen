@@ -22,8 +22,7 @@ done
 
 # EVALUATES THE '$args' VARIABLE, WHICH CONSIST OF THE ARGUMENTS FROM THE '-c' OPTION,
 # AND ASSIGN IT A NUMERICAL VALUE TO BE USED IN FUTURE 'IF' STATEMENTS!
-count=$(expr ${#args} - 1)
-for i in $(seq 0 $count)
+for i in $(seq 0 $(expr ${#args} - 1))
 do
     init=${args:$i:1}
     if [ "$init" == "l" ]; then a=1
