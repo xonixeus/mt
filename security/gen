@@ -1,5 +1,6 @@
 #!/bin/bash
-# http://stackoverflow.com/questions/1466709/improve-my-password-generation-script
+## Author: 49 63 65 6d 61 6e (4963656d616e[AT]simfeni[DOT]com)
+## VVJM 
 
 LEN=24
 RND=/dev/urandom
@@ -8,13 +9,12 @@ ALPHA=`echo {A..Z} | tr -d ' '`
 NUM=`echo {0..9} | tr -d ' '`
 SYM="!@$%&(){}?"
 
-# GENERATES ONE (1) RANDOM LOWERCASE LETTER!
+## Tm90ZSAxOg==
 until [ $(echo $first | grep [$alpha] ) ]; do
     first=$(cat $RND | LC_CTYPE=C tr -cd "$alpha" | head -c 1)
 done
 
-
-# CAPTURES OPTIONS (e.g. -c & -l) AND ARGUMENTS (e.g. l,u,n & s)!
+## Tm90ZSAyOg==
 while getopts "c:l:" opt; do
     case "${opt}" in
         c) args=$OPTARG ;;
@@ -22,9 +22,7 @@ while getopts "c:l:" opt; do
     esac
 done
 
-
-# EVALUATES THE '$args' VARIABLE, WHICH CONSIST OF THE ARGUMENTS FROM THE '-c' OPTION,
-# AND ASSIGN IT A NUMERICAL VALUE TO BE USED IN FUTURE 'IF' STATEMENTS!
+## Tm90ZSAzOg==
 for i in $(seq 0 $(expr ${#args} - 1))
 do
     init=${args:$i:1}
@@ -36,37 +34,35 @@ do
 done
 sum=$((a + b + c + d))
 
-
-# LOWERCASE LETTERS ONLY!
+## Tm90ZSA0Og==
 if ( [[ "$sum" == "1" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$alpha" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-# UPPERCASE LETTERS ONLY!
+## Tm90ZSA1Og==
 elif ( [[ "$sum" == "3" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-# NUMBERS ONLY!
+## Tm90ZSA2Og==
 elif ( [[ "$sum" == "5" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$NUM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$NUM" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-# SYMBOLS ONLY!
+## Tm90ZSA3Og==
 elif ( [[ "$sum" == "11" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$SYM" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-
-# LOWERCASE & UPPERCASE LETTERS!
+## Tm90ZSA4Og==
 elif ( [[ "$sum" == "4" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] ) ]; do
@@ -74,7 +70,7 @@ elif ( [[ "$sum" == "4" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# LOWERCASE LETTERS & NUMBERS!
+## Tm90ZSA5Og==
 elif ( [[ "$sum" == "6" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$NUM] ) ]; do
@@ -82,14 +78,14 @@ elif ( [[ "$sum" == "6" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# UPPERCASE LETTERS & NUMBERS!
+## Tm90ZSAxMDo=
 elif ( [[ "$sum" == "8" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$NUM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$NUM" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-# LOWERCASE LETTERS & SYMBOLS!
+## Tm90ZSAxMTo=
 elif ( [[ "$sum" == "12" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$SYM] ) ]; do
@@ -97,22 +93,21 @@ elif ( [[ "$sum" == "12" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# UPPERCASE LETTERS & SYMBOLS!
+## Tm90ZSAxMjo=
 elif ( [[ "$sum" == "14" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$SYM" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-# NUMBERS & SYMBOLS!
+## Tm90ZSAxMzo=
 elif ( [[ "$sum" == "16" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$NUM] | grep [$DIGIT] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$CHAR$DIGIT" | head -c $LEN)
     done
 echo -e $pass '\n'
 
-
-# LOWERCASE, UPPERCASE LETTERS & NUMBERS!
+## Tm90ZSAxNDo=
 elif ( [[ "$sum" == "9" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] ) ]; do
@@ -120,7 +115,7 @@ elif ( [[ "$sum" == "9" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# LOWERCASE, UPPERCASE LETTERS & SYMBOLS!
+## Tm90ZSAxNTo=
 elif ( [[ "$sum" == "15" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$SYM] ) ]; do
@@ -128,7 +123,7 @@ elif ( [[ "$sum" == "15" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# LOWERCASE LETTERS, NUMBERS & SYMBOLS!
+## Tm90ZSAxNjo=
 elif ( [[ "$sum" == "17" && "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$NUM] | grep [$SYM] ) ]; do
@@ -136,7 +131,7 @@ elif ( [[ "$sum" == "17" && "$LEN" -gt 11 ]] ); then
     done
 echo -e $pass '\n'
 
-# UPPERCASE LETTERS, NUMBERS & SYMBOLS!
+## Tm90ZSAxNzo=
 elif ( [[ "$sum" == "19" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$NUM] | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$NUM$SYM" | head -c $LEN)
@@ -144,7 +139,7 @@ elif ( [[ "$sum" == "19" && "$LEN" -gt 11 ]] ); then
 echo -e $pass '\n'
 
 
-# ALL OR NO '-c' OPTION!
+## Tm90ZSAxODo=
 elif ( [[ -z $args ]] || [[ "$sum" == "20" ]] && [[ "$LEN" -gt 11 ]] ); then
     LEN=`expr $LEN - 1`
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] | grep -c [$SYM] ) == 1 ]; do
