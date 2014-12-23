@@ -4,8 +4,10 @@
 
 LEN=24
 RND=/dev/urandom
-alpha=`echo {a..z} | tr -d ' '`
-ALPHA=`echo {A..Z} | tr -d ' '`
+#alpha=`echo {a..z} | tr -d ' '`
+alpha="abcdefghjkmnpqrstuvwxyz"
+#ALPHA=`echo {A..Z} | tr -d ' '`
+ALPHA="ABCDEFGHJKLMNPQRSTUVWXYZ"
 NUM=`echo {0..9} | tr -d ' '`
 SYM="!@$%&(){}?"
 
