@@ -41,28 +41,28 @@ if ( [[ "$sum" == "1" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$alpha" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSA1Og==
 elif ( [[ "$sum" == "3" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSA2Og==
 elif ( [[ "$sum" == "5" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$NUM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$NUM" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSA3Og==
 elif ( [[ "$sum" == "11" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$SYM" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSA4Og==
 elif ( [[ "$sum" == "4" && "$LEN" -gt 11 ]] ); then
@@ -70,7 +70,7 @@ elif ( [[ "$sum" == "4" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSA5Og==
 elif ( [[ "$sum" == "6" && "$LEN" -gt 11 ]] ); then
@@ -78,14 +78,14 @@ elif ( [[ "$sum" == "6" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$NUM] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$NUM" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxMDo=
 elif ( [[ "$sum" == "8" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$NUM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$NUM" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxMTo=
 elif ( [[ "$sum" == "12" && "$LEN" -gt 11 ]] ); then
@@ -93,21 +93,21 @@ elif ( [[ "$sum" == "12" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$SYM] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$SYM" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxMjo=
 elif ( [[ "$sum" == "14" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$SYM" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxMzo=
 elif ( [[ "$sum" == "16" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$NUM] | grep [$DIGIT] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$CHAR$DIGIT" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxNDo=
 elif ( [[ "$sum" == "9" && "$LEN" -gt 11 ]] ); then
@@ -115,7 +115,7 @@ elif ( [[ "$sum" == "9" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$NUM" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxNTo=
 elif ( [[ "$sum" == "15" && "$LEN" -gt 11 ]] ); then
@@ -123,7 +123,7 @@ elif ( [[ "$sum" == "15" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$SYM] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$SYM" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxNjo=
 elif ( [[ "$sum" == "17" && "$LEN" -gt 11 ]] ); then
@@ -131,14 +131,14 @@ elif ( [[ "$sum" == "17" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$NUM] | grep [$SYM] ) ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$NUM$SYM" | head -c $LEN)"
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 ## Tm90ZSAxNzo=
 elif ( [[ "$sum" == "19" && "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$ALPHA] | grep [$NUM] | grep [$SYM] ) ]; do
         pass=$(cat $RND | LC_CTYPE=C tr -cd "$ALPHA$NUM$SYM" | head -c $LEN)
     done
-echo -e $pass '\n'
+echo -e $pass'\n'
 
 
 ## Tm90ZSAxODo=
@@ -147,7 +147,7 @@ elif ( [[ -z $args ]] || [[ "$sum" == "20" ]] && [[ "$LEN" -gt 11 ]] ); then
     until [ $(echo $pass | grep [$alpha] | grep [$ALPHA] | grep [$NUM] | grep -c [$SYM] ) == 1 ]; do
         pass="$first$(cat $RND | LC_CTYPE=C tr -cd "$alpha$ALPHA$NUM$SYM" | head -c $LEN)"
     done
-    echo -e $pass '\n';
+    echo -e $pass'\n';
 
 else
     echo -e "Length option (i.e. -l) MUST HAVE an argument greather than eleven (11)!\n"
